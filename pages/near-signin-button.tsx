@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ConnectedWalletAccount, WalletConnection } from "near-api-js";
 
-const NearLoginButton: FC<{
+const NearSigninButton: FC<{
   wallet: WalletConnection;
   account: ConnectedWalletAccount | null;
   signOut: () => void;
@@ -17,9 +17,9 @@ const NearLoginButton: FC<{
   return (
     <>
       <button onClick={handleClick}>
-        {wallet.isSignedIn() ? "Signout from NEAR" : "Login with NEAR"}
+        {wallet.isSignedIn() ? "Sign out" : "Sign in with NEAR"}
       </button>
     </>
   );
 };
-export default NearLoginButton;
+export default NearSigninButton;

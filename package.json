@@ -13,11 +13,13 @@
     "next": "^11",
     "react": "^17",
     "react-dom": "^17",
-    "styled-jsx": "^3"
+    "styled-jsx": "^3",
+    "uuid": "^8"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
     "@types/react": "^17",
+    "@types/uuid": "^8",
     "@typescript-eslint/eslint-plugin": "^4",
     "@typescript-eslint/parser": "^4",
     "eslint": "^7",

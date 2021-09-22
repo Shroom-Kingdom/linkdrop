@@ -13,7 +13,8 @@ import {
 } from "near-api-js";
 import { BrowserLocalStorageKeyStore } from "near-api-js/lib/key_stores";
 
-import NearLoginButton from "./near-login-button";
+import NearSigninButton from "./near-signin-button";
+import { removeQueryParams } from "./helper";
 
 const NearAccount: FC<{
   account: ConnectedWalletAccount | null;
@@ -55,16 +56,14 @@ const NearAccount: FC<{
     if (keyStore) {
       keyStore.clear();
       setAccount(null);
-      const url = new URL(window.location.href);
-      url.search = "";
-      window.history.replaceState({}, document.title, url.toString());
+      removeQueryParams();
     }
   };
   return (
     <>
       {account && <div>{account.accountId}</div>}
       {wallet && (
-        <NearLoginButton wallet={wallet} account={account} signOut={signOut} />
+        <NearSigninButton wallet={wallet} account={account} signOut={signOut} />
       )}
     </>
   );

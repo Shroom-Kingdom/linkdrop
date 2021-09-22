@@ -18,7 +18,6 @@ const Home: NextPage = () => {
         }
 
         a {
-          color: inherit;
           text-decoration: none;
         }
 
@@ -41,9 +40,10 @@ const Home: NextPage = () => {
         .main {
           padding: 5rem 0;
           flex: 1;
+          min-height: 0;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
         }
 
