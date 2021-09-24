@@ -6,7 +6,9 @@ import Error from "../public/error.svg";
 
 import DiscordAccount from "./discord-account";
 import NearAccount from "./near-account";
+import TwitterAccount from "./twitter-account";
 import { DiscordUser } from "./discord";
+import { TwitterUser } from "./twitter";
 
 const Airdrop: FC = () => {
   const [nearAccount, setNearAccount] = useState<ConnectedWalletAccount | null>(
@@ -15,6 +17,10 @@ const Airdrop: FC = () => {
   const [discordAccount, setDiscordAccount] = useState<DiscordUser | null>(
     null
   );
+  const [twitterAccount, setTwitterAccount] = useState<TwitterUser | null>(
+    null
+  );
+  const [twitterError, setTwitterError] = useState<string | null>(null);
 
   const dateThreshold = new Date("2021-09-21");
 
@@ -203,6 +209,100 @@ const Airdrop: FC = () => {
                 rel="noreferrer"
               >
                 top.gg
+              </a>
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <h1 className="card-header">Connect with Twitter</h1>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            {twitterError ? (
+              twitterError
+            ) : (
+              <TwitterAccount
+                account={twitterAccount}
+                setAccount={setTwitterAccount}
+                setError={setTwitterError}
+              />
+            )}
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.createdAt.valueOf() ||
+            0 > dateThreshold.valueOf() ? (
+              <Check />
+            ) : (
+              <Error />
+            )}
+          </div>
+          <div className="card-content">
+            <h4>Account created before {dateThreshold.toLocaleString()}?</h4>
+            {twitterAccount && twitterAccount?.createdAt.toLocaleString()}
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.isFollowing ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Is following on{" "}
+              <a
+                href="https://twitter.com/shrm_kingdom"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Twitter
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.verified ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>Has a verified Email</h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.retweeted ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Retweeted{" "}
+              <a
+                href="https://twitter.com/shrm_kingdom/status/1434868799040368641"
+                target="_blank"
+                rel="noreferrer"
+              >
+                our Tweet
+              </a>{" "}
+              with hashtags #NFT #PlayToEarn #BlockchainGaming #Airdrop
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.liked ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Liked{" "}
+              <a
+                href="https://twitter.com/shrm_kingdom/status/1434868799040368641"
+                target="_blank"
+                rel="noreferrer"
+              >
+                our Tweet
               </a>
             </h4>
           </div>
