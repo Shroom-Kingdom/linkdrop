@@ -22,7 +22,7 @@ const DiscordAccount: FC<{
           const code = queryParams.get("code");
           if (code && state === queryParams.get("state")) {
             const res = await fetch(
-              `https://airdrop.shrm.workers.dev/discord/token`,
+              `https://linkdrop.shrm.workers.dev/discord/token`,
               {
                 method: "POST",
                 body: JSON.stringify({ code }),
@@ -40,7 +40,7 @@ const DiscordAccount: FC<{
         }
         if (refreshToken) {
           const res = await fetch(
-            `https://airdrop.shrm.workers.dev/discord/refresh`,
+            `https://linkdrop.shrm.workers.dev/discord/refresh`,
             {
               method: "POST",
               body: JSON.stringify({ refresh_token: refreshToken }),

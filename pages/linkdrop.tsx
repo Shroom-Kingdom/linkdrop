@@ -1,19 +1,14 @@
 import React, { FC, useState } from "react";
-import { ConnectedWalletAccount } from "near-api-js";
 
 import Check from "../public/check.svg";
 import Error from "../public/error.svg";
 
 import DiscordAccount from "./discord-account";
-import NearAccount from "./near-account";
 import TwitterAccount from "./twitter-account";
 import { DiscordUser } from "./discord";
 import { TwitterUser } from "./twitter";
 
-const Airdrop: FC = () => {
-  const [nearAccount, setNearAccount] = useState<ConnectedWalletAccount | null>(
-    null
-  );
+const Linkdrop: FC = () => {
   const [discordAccount, setDiscordAccount] = useState<DiscordUser | null>(
     null
   );
@@ -22,7 +17,7 @@ const Airdrop: FC = () => {
   );
   const [twitterError, setTwitterError] = useState<string | null>(null);
 
-  const dateThreshold = new Date("2021-09-21");
+  const dateThreshold = new Date("2021-12-01");
 
   return (
     <div className="grid">
@@ -108,18 +103,6 @@ const Airdrop: FC = () => {
       `}</style>
 
       <div className="card">
-        <h1 className="card-header">Connect with NEAR</h1>
-        <div className="card-row">
-          <div className="card-image">
-            {nearAccount ? <Check /> : <Error />}
-          </div>
-          <div className="card-content">
-            <NearAccount account={nearAccount} setAccount={setNearAccount} />
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
         <h1 className="card-header">Connect with Discord</h1>
         <div className="card-row">
           <div className="card-image">
@@ -158,7 +141,24 @@ const Airdrop: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Discord server
+                Shroom Kingdom Discord server
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {discordAccount?.isHumanguildMember ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Has joined{" "}
+              <a
+                href="https://discord.gg/UtjCHNmaf9"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Humanguild Discord server
               </a>
             </h4>
           </div>
@@ -176,7 +176,15 @@ const Airdrop: FC = () => {
             {discordAccount?.acceptedRules ? <Check /> : <Error />}
           </div>
           <div className="card-content">
-            <h4>Accepted rules of Discord server</h4>
+            <h4>Accepted rules of Shroom Kingdom Discord server</h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {discordAccount?.solvedCaptcha ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>Solved captcha on Shroom Kingdom Discord server</h4>
           </div>
         </div>
         <div className="card-row">
@@ -311,4 +319,4 @@ const Airdrop: FC = () => {
     </div>
   );
 };
-export default Airdrop;
+export default Linkdrop;
