@@ -2,6 +2,8 @@ import Head from "next/head";
 import React from "react";
 import type { NextPage } from "next";
 
+import Description from "./description.mdx";
+import Faq from "./faq.mdx";
 import Linkdrop from "./linkdrop";
 
 const Home: NextPage = () => {
@@ -38,6 +40,7 @@ const Home: NextPage = () => {
         }
 
         .main {
+          max-width: 100%;
           padding: 5rem 0;
           flex: 1;
           min-height: 0;
@@ -60,6 +63,7 @@ const Home: NextPage = () => {
 
         .title {
           margin: 0;
+          margin-bottom: 2rem;
           line-height: 1.15;
           font-size: 4rem;
         }
@@ -69,9 +73,13 @@ const Home: NextPage = () => {
           text-align: center;
         }
 
-        .description {
+        .text-block {
+          max-width: 100%;
           line-height: 1.5;
-          font-size: 1.5rem;
+          font-size: 1.3rem;
+          margin: 0 2rem;
+          width: 60rem;
+          text-align: left;
         }
       `}</style>
 
@@ -88,13 +96,15 @@ const Home: NextPage = () => {
         <main className="main">
           <h1 className="title">Shroom Kingdom Linkdrop</h1>
 
-          <p className="description">
-            This is the Shroom Kingdom Linkdrop page. After completing all tasks
-            below, you are eligible to receive a link for receiving 0.1 NEAR for
-            free.
+          <p className="text-block">
+            <Description />
           </p>
 
           <Linkdrop />
+
+          <p className="text-block">
+            <Faq />
+          </p>
         </main>
       </div>
     </>

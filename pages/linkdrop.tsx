@@ -57,7 +57,8 @@ const Linkdrop: FC = () => {
         }
 
         .card-image {
-          width: 36px;
+          min-width: 36px;
+          max-width: 36px;
           height: 36px;
           margin-right: 1rem;
         }
@@ -243,31 +244,68 @@ const Linkdrop: FC = () => {
         </div>
         <div className="card-row">
           <div className="card-image">
-            {twitterAccount?.createdAt.valueOf() ||
-            0 > dateThreshold.valueOf() ? (
-              <Check />
-            ) : (
-              <Error />
-            )}
-          </div>
-          <div className="card-content">
-            <h4>Account created before {dateThreshold.toLocaleString()}?</h4>
-            {twitterAccount && twitterAccount?.createdAt.toLocaleString()}
-          </div>
-        </div>
-        <div className="card-row">
-          <div className="card-image">
             {twitterAccount?.isFollowing ? <Check /> : <Error />}
           </div>
           <div className="card-content">
             <h4>
-              Is following on{" "}
+              Is following{" "}
               <a
                 href="https://twitter.com/shrm_kingdom"
                 target="_blank"
                 rel="noreferrer"
               >
-                Twitter
+                Shroom Kingdom
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.isFollowingHumanguild ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Is following{" "}
+              <a
+                href="https://twitter.com/humanguild"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Humanguild
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.isFollowingNEARGames ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Is following{" "}
+              <a
+                href="https://twitter.com/NearGamesGuild"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Near Games
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {twitterAccount?.isFollowingNEARProtocol ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            <h4>
+              Is following{" "}
+              <a
+                href="https://twitter.com/NEARProtocol"
+                target="_blank"
+                rel="noreferrer"
+              >
+                NEAR Protocol
               </a>
             </h4>
           </div>
@@ -288,13 +326,13 @@ const Linkdrop: FC = () => {
             <h4>
               Retweeted{" "}
               <a
-                href="https://twitter.com/shrm_kingdom/status/1434868799040368641"
+                href="https://twitter.com/shrm_kingdom/status/1416299778024083457"
                 target="_blank"
                 rel="noreferrer"
               >
                 our Tweet
               </a>{" "}
-              with hashtags #NFT #PlayToEarn #BlockchainGaming #Airdrop
+              with hashtags #NFT #PlayToEarn #BlockchainGaming
             </h4>
           </div>
         </div>
@@ -306,7 +344,7 @@ const Linkdrop: FC = () => {
             <h4>
               Liked{" "}
               <a
-                href="https://twitter.com/shrm_kingdom/status/1434868799040368641"
+                href="https://twitter.com/shrm_kingdom/status/1416299778024083457"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -41,7 +41,6 @@ const TwitterAccount: FC<{
               oauthToken?: string;
               oauthTokenSecret?: string;
             } = await res.json();
-            user.createdAt = new Date(user.createdAt);
             const { oauthToken: token, oauthTokenSecret: secret } = user;
             delete user.oauthToken;
             delete user.oauthTokenSecret;
@@ -76,7 +75,6 @@ const TwitterAccount: FC<{
             return;
           }
           const user: TwitterUser = await res.json();
-          user.createdAt = new Date(user.createdAt);
           setAccount(user);
         }
       }
