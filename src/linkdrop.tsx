@@ -53,7 +53,7 @@ const Linkdrop: FC = () => {
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
           background: rgba(0, 0, 0, 0.05);
-          width: 100%;
+          max-width: 100%;
         }
 
         .card-image {

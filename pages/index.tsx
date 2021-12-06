@@ -2,9 +2,9 @@ import Head from "next/head";
 import React from "react";
 import type { NextPage } from "next";
 
-import Description from "./description.mdx";
-import Faq from "./faq.mdx";
-import Linkdrop from "./linkdrop";
+import Description from "../src/description.mdx";
+import Faq from "../src/faq.mdx";
+import Linkdrop from "../src/linkdrop";
 
 const Home: NextPage = () => {
   return (
@@ -74,11 +74,10 @@ const Home: NextPage = () => {
         }
 
         .text-block {
-          max-width: 100%;
           line-height: 1.5;
           font-size: 1.3rem;
           margin: 0 2rem;
-          width: 60rem;
+          max-width: 60rem;
           text-align: left;
         }
       `}</style>
@@ -96,15 +95,15 @@ const Home: NextPage = () => {
         <main className="main">
           <h1 className="title">Shroom Kingdom Linkdrop</h1>
 
-          <p className="text-block">
+          <div className="text-block">
             <Description />
-          </p>
+          </div>
 
           <Linkdrop />
 
-          <p className="text-block">
+          <div className="text-block">
             <Faq />
-          </p>
+          </div>
         </main>
       </div>
     </>
