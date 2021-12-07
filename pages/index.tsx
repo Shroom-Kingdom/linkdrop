@@ -26,6 +26,10 @@ const Home: NextPage = () => {
         * {
           box-sizing: border-box;
         }
+
+        .text-block ul {
+          margin-top: 3rem;
+        }
       `}</style>
 
       <style jsx>{`
