@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 
+import Button from "./button";
 import { TwitterUser } from "./twitter";
 
 const TwitterSigninButton: FC<{
@@ -22,11 +23,9 @@ const TwitterSigninButton: FC<{
     }
   };
   return (
-    <>
-      <button onClick={handleClick}>
-        {account ? "Sign out" : "Sign in with Twitter"}
-      </button>
-    </>
+    <Button onClick={handleClick}>
+      {account ? "Sign out" : "Sign in with Twitter"}
+    </Button>
   );
 };
 export default TwitterSigninButton;

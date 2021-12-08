@@ -7,6 +7,8 @@ import React, {
   useState,
 } from "react";
 
+import Button from "./button";
+
 interface Info {
   claimed: number;
   unclaimed: number;
@@ -19,10 +21,11 @@ export interface ClaimCheck {
 }
 
 const Claim: FC<{
+  claimCheck: ClaimCheck | null;
   setClaimCheck: Dispatch<SetStateAction<ClaimCheck | null>>;
   discordOwnerId?: string;
   twitterOwnerId?: string;
-}> = ({ setClaimCheck, discordOwnerId, twitterOwnerId }) => {
+}> = ({ claimCheck, setClaimCheck, discordOwnerId, twitterOwnerId }) => {
   const [info, setInfo] = useState<Info | null>(null);
 
   const fetchCheck = useCallback(async () => {
@@ -60,11 +63,26 @@ const Claim: FC<{
   return (
     <>
       {info && (
-        <div>
+        <span>
           {info.claimed} links have already been claimed. {info.unclaimed}{" "}
           remaining
-        </div>
+        </span>
       )}
+
+      <style jsx>{`
+        .wrapper {
+          display: flex:
+          width: 100%;
+          justify-content: center;
+          margin-top: 1rem;
+        }
+      `}</style>
+      <div className="wrapper">
+        {claimCheck &&
+          claimCheck.discord &&
+          claimCheck.twitter &&
+          (claimCheck.link ? claimCheck.link : <Button>Claim now</Button>)}
+      </div>
     </>
   );
 };

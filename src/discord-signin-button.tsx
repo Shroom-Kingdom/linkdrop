@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import * as uuid from "uuid";
 
+import Button from "./button";
 import { DiscordUser } from "./discord";
 
 const DiscordSigninButton: FC<{
@@ -17,11 +18,9 @@ const DiscordSigninButton: FC<{
     }
   };
   return (
-    <>
-      <button onClick={handleClick}>
-        {account ? "Sign out" : "Sign in with Discord"}
-      </button>
-    </>
+    <Button onClick={handleClick}>
+      {account ? "Sign out" : "Sign in with Discord"}
+    </Button>
   );
 };
 export default DiscordSigninButton;

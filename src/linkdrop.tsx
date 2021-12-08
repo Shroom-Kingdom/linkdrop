@@ -74,6 +74,7 @@ const Linkdrop: FC = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+          width: 100%;
         }
 
         .card-row {
@@ -90,7 +91,7 @@ const Linkdrop: FC = () => {
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
+          color: #004ea9;
           border-color: #0070f3;
         }
 
@@ -111,6 +112,7 @@ const Linkdrop: FC = () => {
         <div className="card-row">
           <div className="card-content">
             <Claim
+              claimCheck={claimCheck}
               setClaimCheck={setClaimCheck}
               discordOwnerId={discordAccount?.id}
               twitterOwnerId={twitterAccount?.screenName}
