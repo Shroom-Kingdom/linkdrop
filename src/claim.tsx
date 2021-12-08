@@ -55,6 +55,23 @@ const Claim: FC<{
     setInfo(await res.json());
   }, []);
 
+  const claim = useCallback(async () => {
+    if (!discordOwnerId || !twitterOwnerId || !claimCheck) return;
+    const res = await fetch(
+      "https://linkdrop.shrm.workers.dev/linkdrop/claim",
+      {
+        method: "POST",
+        body: JSON.stringify({ discordOwnerId, twitterOwnerId }),
+      }
+    );
+    if (!res.ok) {
+      console.error(res.status, await res.text());
+      return;
+    }
+    const link = await res.text();
+    setClaimCheck({ ...claimCheck, link });
+  }, [discordOwnerId, twitterOwnerId, claimCheck, setClaimCheck]);
+
   useEffect(() => {
     fetchInfo();
     fetchCheck();
@@ -76,12 +93,31 @@ const Claim: FC<{
           justify-content: center;
           margin-top: 1rem;
         }
+
+        .link-wrapper {
+          max-width: 100%;
+          word-wrap: break-word;
+        }
+
+        .link {
+          font-family: monospace;
+        }
       `}</style>
       <div className="wrapper">
         {claimCheck &&
           claimCheck.discord &&
           claimCheck.twitter &&
-          (claimCheck.link ? claimCheck.link : <Button>Claim now</Button>)}
+          (claimCheck.link ? (
+            <div className="link-wrapper">
+              Here is your link:
+              <div className="link">{claimCheck.link}</div>
+              <a href={claimCheck.link} target="_blank" rel="noreferrer">
+                <Button>Open</Button>
+              </a>
+            </div>
+          ) : (
+            <Button onClick={claim}>Claim now</Button>
+          ))}
       </div>
     </>
   );
