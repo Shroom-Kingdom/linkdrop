@@ -3,12 +3,14 @@ import React, { FC, useState } from "react";
 import Check from "../public/check.svg";
 import Error from "../public/error.svg";
 
+import Claim, { ClaimCheck } from "./claim";
 import DiscordAccount from "./discord-account";
 import TwitterAccount from "./twitter-account";
 import { DiscordUser } from "./discord";
 import { TwitterUser } from "./twitter";
 
 const Linkdrop: FC = () => {
+  const [claimCheck, setClaimCheck] = useState<ClaimCheck | null>(null);
   const [discordAccount, setDiscordAccount] = useState<DiscordUser | null>(
     null
   );
@@ -54,6 +56,7 @@ const Linkdrop: FC = () => {
           transition: color 0.15s ease, border-color 0.15s ease;
           background: rgba(0, 0, 0, 0.05);
           max-width: 100%;
+          width: 100%;
         }
 
         .card-image {
@@ -102,6 +105,47 @@ const Linkdrop: FC = () => {
           line-height: 1.5;
         }
       `}</style>
+
+      <div className="card">
+        <h1 className="card-header">Claim your reward</h1>
+        <div className="card-row">
+          <div className="card-content">
+            <Claim
+              setClaimCheck={setClaimCheck}
+              discordOwnerId={discordAccount?.id}
+              twitterOwnerId={twitterAccount?.screenName}
+            />
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {claimCheck?.discord ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            {discordAccount == null ? (
+              <>You are not logged in with Discord</>
+            ) : !claimCheck?.discord ? (
+              <>You have not yet fulfilled all preconditions for Discord</>
+            ) : (
+              <>You have fulfilled all preconditions for Discord</>
+            )}
+          </div>
+        </div>
+        <div className="card-row">
+          <div className="card-image">
+            {claimCheck?.twitter ? <Check /> : <Error />}
+          </div>
+          <div className="card-content">
+            {twitterAccount == null ? (
+              <>You are not logged in with Twitter</>
+            ) : !claimCheck?.twitter ? (
+              <>You have not yet fulfilled all preconditions for Twitter</>
+            ) : (
+              <>You have fulfilled all preconditions for Twitter</>
+            )}
+          </div>
+        </div>
+      </div>
 
       <div className="card">
         <h1 className="card-header">Connect with Discord</h1>

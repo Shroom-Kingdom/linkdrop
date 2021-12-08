@@ -12,7 +12,6 @@ const TwitterAccount: FC<{
   useEffect(() => {
     const run = async () => {
       if (process.browser) {
-        // const oauthToken = window.localStorage.getItem("TWITTER_OAUTH_TOKEN");
         const oauthToken = window.localStorage.getItem("TWITTER_OAUTH_TOKEN");
         const oauthTokenSecret = window.localStorage.getItem(
           "TWITTER_OAUTH_TOKEN_SECRET"
