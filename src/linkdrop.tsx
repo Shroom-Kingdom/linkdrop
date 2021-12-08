@@ -372,7 +372,7 @@ const Linkdrop: FC = () => {
             <h4>
               Retweeted{" "}
               <a
-                href="https://twitter.com/shrm_kingdom/status/1416299778024083457"
+                href="https://twitter.com/shrm_kingdom/status/1468599624248274957"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -390,7 +390,7 @@ const Linkdrop: FC = () => {
             <h4>
               Liked{" "}
               <a
-                href="https://twitter.com/shrm_kingdom/status/1416299778024083457"
+                href="https://twitter.com/shrm_kingdom/status/1468599624248274957"
                 target="_blank"
                 rel="noreferrer"
               >
