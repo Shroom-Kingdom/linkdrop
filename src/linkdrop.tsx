@@ -231,7 +231,7 @@ const Linkdrop: FC = () => {
             {discordAccount?.solvedCaptcha ? <Check /> : <Error />}
           </div>
           <div className="card-content">
-            <h4>Solved captcha on Shroom Kingdom Discord server</h4>
+            <h4>Solved captcha on Shroom Kingdom Discord server. You need to do this BEFORE voting for the server. Otherwise you will be automatically kicked and we can no longer check, if you voted.</h4>
           </div>
         </div>
         <div className="card-row">
