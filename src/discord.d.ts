@@ -5,7 +5,6 @@ export interface DiscordUser {
   createdAt: Date | string;
   refreshToken: string;
   isMember: boolean;
-  isHumanguildMember: boolean;
   verified: boolean;
   acceptedRules: boolean;
   solvedCaptcha: boolean;

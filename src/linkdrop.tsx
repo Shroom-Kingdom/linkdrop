@@ -195,23 +195,6 @@ const Linkdrop: FC = () => {
         </div>
         <div className="card-row">
           <div className="card-image">
-            {discordAccount?.isHumanguildMember ? <Check /> : <Error />}
-          </div>
-          <div className="card-content">
-            <h4>
-              Has joined{" "}
-              <a
-                href="https://discord.gg/UtjCHNmaf9"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Humanguild Discord server
-              </a>
-            </h4>
-          </div>
-        </div>
-        <div className="card-row">
-          <div className="card-image">
             {discordAccount?.verified ? <Check /> : <Error />}
           </div>
           <div className="card-content">
